@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MaxiTech Pharma · Brand Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#000F22;        /* Ink Navy — deep ink, text */
+  --navy:#1B3554;       /* Deep Navy — signature */
+  --steel:#3F6593;      /* Steel Blue — secondary */
+  --clinical:#5B86B6;   /* Clinical Blue — accents */
+  --powder:#80AAD3;     /* Powder Blue — soft accents */
+  --sky:#C0E6FD;        /* Sky Wash — backgrounds */
+  --white:#FFFFFF;
+  --royal:#002B71;      /* Logo Royal — fixed logo colour */
+  --page-bg:#04090F;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--page-bg);font-family:'Poppins',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+
+/* ---------- spread frame ---------- */
+.spread{
+  position:relative;
+  width:min(96vw,1680px);
+  aspect-ratio:16/9;
+  margin:1.4vw auto;
+  border-radius:22px;
+  overflow:hidden;
+  background:var(--white);
+  container-type:inline-size;
+  display:flex;flex-direction:column;
+}
+.s-head,.s-foot{
+  flex-shrink:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:3.2cqw 4cqw 0 4cqw;
+  font-size:.78cqw;font-weight:600;letter-spacing:.38em;text-transform:uppercase;
+  color:var(--steel);z-index:3;
+}
+.s-foot{padding:0 4cqw 3.2cqw 4cqw;color:#9fb3c8}
+.s-foot .tag{letter-spacing:.32em}
+.s-body{flex:1;display:flex;padding:0 4cqw;z-index:2;min-height:0}
+
+/* dark + sky variants */
+.dark{background:linear-gradient(135deg,#000F22 0%,#0A1D38 55%,#12294a 100%);color:#fff}
+.dark .s-head,.dark .s-foot{color:rgba(255,255,255,.55)}
+.sky{background:linear-gradient(135deg,#EAF6FF 0%,#C0E6FD 60%,#A9D4EF 100%)}
+
+/* ---------- typography helpers ---------- */
+.knum{font-size:1.15cqw;font-weight:500;color:var(--clinical);letter-spacing:.12em;margin-bottom:1.2cqw}
+h2.disp{font-weight:300;font-size:3.5cqw;line-height:1.12;letter-spacing:-.01em;color:var(--ink)}
+.dark h2.disp{color:#fff}
+p.lede{font-weight:300;font-size:1.18cqw;line-height:1.7;color:var(--navy);margin-top:1.6cqw}
+p.body{font-family:'Inter',sans-serif;font-size:1cqw;line-height:1.75;color:#2c3e50;margin-top:1.4cqw}
+.dark p.lede,.dark p.body{color:rgba(255,255,255,.82)}
+.fine{font-family:'Inter',sans-serif;font-size:.78cqw;color:var(--steel);line-height:1.6}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:4cqw;width:100%;align-items:center}
+
+/* ---------- cover ---------- */
+.cover{justify-content:space-between;background:linear-gradient(100deg,rgba(0,15,34,.9) 28%,rgba(0,15,34,.5) 68%,rgba(0,15,34,.4)),url('img/cover.jpg') center/cover no-repeat}
+.cover .s-body{flex-direction:column;justify-content:center;align-items:flex-start}
+.logo-holder{background:#fff;border-radius:1.4cqw;padding:1.1cqw 1.6cqw;display:inline-flex;align-items:center;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.logo-holder img{height:3.4cqw;display:block}
+.cover h1{font-weight:300;font-size:6.2cqw;letter-spacing:.005em;color:#fff;margin-top:2.6cqw;line-height:1.05}
+.cover .sub{font-size:1.25cqw;font-weight:600;letter-spacing:.42em;color:var(--sky);margin-top:1.6cqw;text-transform:uppercase}
+.cover-glow{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(60% 80% at 85% 15%,rgba(91,134,182,.25),transparent 60%),
+  radial-gradient(50% 60% at 10% 90%,rgba(192,230,253,.12),transparent 60%)}
+
+/* ---------- contents ---------- */
+.toc{display:grid;grid-template-columns:1fr 1.25fr;gap:5cqw;width:100%;align-items:center}
+.toc-list{list-style:none;border-top:1px solid #dce6ee}
+.toc-list li a{display:grid;grid-template-columns:2.6cqw 1fr auto;align-items:center;gap:1.4cqw;
+  padding:1.35cqw .4cqw;border-bottom:1px solid #dce6ee;text-decoration:none}
+.toc-list .n{font-size:.95cqw;color:var(--clinical);font-weight:500}
+.toc-list .t{font-size:1.5cqw;font-weight:400;color:var(--ink)}
+.toc-list .p{font-size:.85cqw;color:#9fb3c8;font-weight:500}
+.toc-list li a:hover .t{color:var(--steel)}
+
+/* ---------- how to use cards ---------- */
+.cards{display:flex;flex-direction:column;gap:1.6cqw;justify-content:center}
+.card{background:#fff;border-radius:1.2cqw;padding:1.7cqw 2cqw;box-shadow:0 18px 50px rgba(27,53,84,.14)}
+.card h4{font-size:.85cqw;font-weight:600;letter-spacing:.32em;color:var(--navy);text-transform:uppercase;margin-bottom:.7cqw}
+.card p{font-family:'Inter',sans-serif;font-size:.95cqw;line-height:1.6;color:#33475b}
+
+/* ---------- dividers ---------- */
+.divider{color:#fff;justify-content:space-between}
+.divider .s-body{flex-direction:column;justify-content:center;align-items:flex-start}
+.divider .big-n{font-size:9cqw;font-weight:200;color:rgba(255,255,255,.16);line-height:1}
+.divider h2{font-weight:300;font-size:5.4cqw;letter-spacing:.14em;color:#fff;line-height:1.05}
+.divider .dlede{font-weight:300;font-size:1.3cqw;color:rgba(255,255,255,.75);margin-top:1.6cqw;max-width:46cqw;line-height:1.6}
+.prompt{position:absolute;right:4cqw;bottom:6.4cqw;max-width:30cqw;text-align:right;
+  font-family:'Inter',sans-serif;font-size:.66cqw;line-height:1.55;color:rgba(255,255,255,.42);z-index:4}
+.prompt b{color:rgba(255,255,255,.6);font-weight:600}
+.div-art{position:absolute;inset:0;z-index:0}
+
+/* per-section divider artwork (placeholder gradients until images are generated) */
+.art-essence{background:linear-gradient(100deg,rgba(0,15,34,.85) 22%,rgba(0,15,34,.4) 62%,rgba(0,15,34,.3)),url('img/div-essence.jpg') center/cover no-repeat}
+.art-voice{background:linear-gradient(100deg,rgba(0,15,34,.85) 22%,rgba(0,15,34,.4) 62%,rgba(0,15,34,.3)),url('img/div-voice.jpg') center/cover no-repeat}
+.art-logo{background:linear-gradient(100deg,rgba(0,15,34,.85) 22%,rgba(0,15,34,.4) 62%,rgba(0,15,34,.3)),url('img/div-logo.jpg') center/cover no-repeat}
+.art-colour{background:linear-gradient(100deg,rgba(0,15,34,.85) 22%,rgba(0,15,34,.4) 62%,rgba(0,15,34,.3)),url('img/div-colour.jpg') center/cover no-repeat}
+.art-type{background:linear-gradient(100deg,rgba(0,15,34,.85) 22%,rgba(0,15,34,.4) 62%,rgba(0,15,34,.3)),url('img/div-type.jpg') center/cover no-repeat}
+.art-imagery{background:linear-gradient(100deg,rgba(0,15,34,.85) 22%,rgba(0,15,34,.4) 62%,rgba(0,15,34,.3)),url('img/div-imagery.jpg') center/cover no-repeat}
+.art-action{background:linear-gradient(100deg,rgba(0,15,34,.85) 22%,rgba(0,15,34,.4) 62%,rgba(0,15,34,.3)),url('img/div-action.jpg') center/cover no-repeat}
+.art-miy{background:linear-gradient(100deg,rgba(0,15,34,.85) 22%,rgba(0,15,34,.4) 62%,rgba(0,15,34,.3)),url('img/div-miy.jpg') center/cover no-repeat}
+.grain{position:absolute;inset:0;opacity:.35;mix-blend-mode:overlay;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:5px 5px}
+
+/* swoosh motif */
+.swoosh{position:absolute;z-index:1;pointer-events:none}
+
+/* ---------- pillars / trios ---------- */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4cqw;width:100%;align-content:center}
+.pillar{border-top:2px solid var(--sky);padding-top:1.6cqw}
+.pillar .pn{font-size:1cqw;color:var(--clinical);font-weight:500;letter-spacing:.1em}
+.pillar h3{font-weight:400;font-size:2cqw;color:var(--ink);margin:.8cqw 0}
+.pillar p{font-family:'Inter',sans-serif;font-size:.95cqw;line-height:1.65;color:#33475b}
+
+/* personality pairs */
+.pairs{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1cqw 3cqw;margin-top:2cqw}
+.pair{display:flex;align-items:baseline;gap:1.2cqw;border-bottom:1px solid #e2ebf3;padding-bottom:.9cqw}
+.pair .yes{font-size:1.4cqw;font-weight:400;color:var(--ink)}
+.pair .not{font-size:.75cqw;font-weight:600;letter-spacing:.28em;color:#9fb3c8;text-transform:uppercase}
+
+/* voice do/don't */
+.dd{display:flex;flex-direction:column;gap:1.4cqw;justify-content:center}
+.dd .row{display:grid;grid-template-columns:2.2cqw 1fr;gap:1.2cqw;align-items:start;
+  background:#F4F9FD;border-radius:1cqw;padding:1.4cqw 1.8cqw}
+.dd .row.bad{background:#FBF3F3}
+.dd .mark{font-size:1.3cqw;font-weight:600;color:var(--steel)}
+.dd .row.bad .mark{color:#b96a6a}
+.dd .q{font-family:'Inter',sans-serif;font-size:1.02cqw;line-height:1.6;color:var(--navy)}
+.dd .row.bad .q{color:#7c5a5a;text-decoration:none}
+
+/* approved lines */
+.lines .lbl{font-size:.75cqw;font-weight:600;letter-spacing:.3em;color:var(--clinical);text-transform:uppercase;margin-top:1.8cqw}
+.lines .val{font-weight:300;font-size:1.7cqw;color:var(--ink);margin-top:.5cqw}
+.lines .val.small{font-size:1.15cqw;font-family:'Inter',sans-serif;font-weight:400;line-height:1.65;color:#2c3e50}
+
+/* compliance list */
+.rules{display:flex;flex-direction:column;gap:1.1cqw;justify-content:center}
+.rule{display:grid;grid-template-columns:2.4cqw 1fr;gap:1.4cqw;align-items:start;border-left:2px solid var(--sky);padding-left:1.6cqw}
+.rule .rn{font-size:1cqw;font-weight:500;color:var(--clinical)}
+.rule h4{font-size:1.1cqw;font-weight:500;color:var(--ink)}
+.rule p{font-family:'Inter',sans-serif;font-size:.88cqw;line-height:1.6;color:#33475b;margin-top:.3cqw}
+
+/* ---------- logo section ---------- */
+.logo-stage{background:#F4F9FD;border-radius:1.4cqw;display:flex;align-items:center;justify-content:center;height:100%;position:relative;overflow:hidden}
+.logo-stage img{width:56%;display:block}
+.logo-stage.dark-stage{background:linear-gradient(135deg,#000F22,#1B3554)}
+.stage-cap{position:absolute;bottom:1.2cqw;left:0;right:0;text-align:center;font-size:.72cqw;letter-spacing:.3em;color:#9fb3c8;text-transform:uppercase;font-weight:600}
+.gridlines{position:absolute;inset:12%;background-image:
+  linear-gradient(rgba(63,101,147,.25) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(63,101,147,.25) 1px,transparent 1px);
+  background-size:12.5% 12.5%;border:1px solid rgba(63,101,147,.35)}
+.clear-demo{position:relative;display:flex;align-items:center;justify-content:center;height:100%}
+.clear-box{border:1.5px dashed var(--powder);padding:4cqw 5cqw;border-radius:.8cqw;position:relative}
+.clear-box img{width:22cqw;display:block}
+.xmark{position:absolute;font-size:.9cqw;color:var(--clinical);font-weight:500}
+.stat{border-top:2px solid var(--sky);padding-top:1.2cqw;margin-top:2cqw}
+.stat .sv{font-size:2.6cqw;font-weight:300;color:var(--ink)}
+.stat .sl{font-size:.78cqw;letter-spacing:.28em;text-transform:uppercase;color:var(--steel);font-weight:600;margin-top:.4cqw}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqw;width:100%;align-content:center}
+.tile{border-radius:1.1cqw;aspect-ratio:1.15;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 8px 28px rgba(27,53,84,.10)}
+.tile img{width:62%}
+.tile .tv{position:absolute;top:.9cqw;left:1.1cqw;font-size:1cqw;font-weight:600}
+.tile .tv.ok{color:var(--steel)}
+.tile .tv.no{color:#b96a6a}
+.tile .tcap{position:absolute;bottom:.8cqw;left:0;right:0;text-align:center;font-size:.68cqw;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#7d92a8}
+.mini-holder{background:#fff;border-radius:.9cqw;padding:.9cqw 1.2cqw;box-shadow:0 6px 22px rgba(0,15,34,.25)}
+.mini-holder img{width:11cqw;display:block}
+
+/* ---------- colour section ---------- */
+.pills{display:grid;grid-template-columns:repeat(6,1fr);gap:1.4cqw;width:100%;height:72%;align-self:center}
+.pillsw{border-radius:100cqw;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1.6cqw;position:relative}
+.pillsw .ph{writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Inter',sans-serif;font-size:.8cqw;font-weight:600;letter-spacing:.08em}
+.spec-table{width:100%;border-collapse:collapse;font-family:'Inter',sans-serif;align-self:center}
+.spec-table th{font-size:.7cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--steel);text-align:left;padding:.7cqw .9cqw;border-bottom:2px solid var(--sky);font-weight:600}
+.spec-table td{font-size:.86cqw;color:#2c3e50;padding:.72cqw .9cqw;border-bottom:1px solid #e5edf4}
+.spec-table .dot{width:1.5cqw;height:1.5cqw;border-radius:50%;display:inline-block;vertical-align:middle;box-shadow:inset 0 0 0 1px rgba(0,15,34,.08)}
+.prop-bar{display:flex;width:100%;height:5cqw;border-radius:1cqw;overflow:hidden;margin-top:2.4cqw}
+.prop-bar div{display:flex;align-items:center;justify-content:center;font-size:.8cqw;font-weight:600;letter-spacing:.1em}
+.tintrow{display:flex;gap:.9cqw;margin-top:1cqw}
+.tintrow div{flex:1;aspect-ratio:1.6;border-radius:.7cqw;display:flex;align-items:flex-end;justify-content:center;padding-bottom:.5cqw;font-size:.7cqw;font-weight:600;font-family:'Inter',sans-serif}
+.contrast{display:grid;grid-template-columns:1fr 1fr;gap:1.4cqw;align-content:center;width:100%}
+.cpair{border-radius:1cqw;padding:1.5cqw 1.8cqw;display:flex;justify-content:space-between;align-items:center}
+.cpair .ct{font-size:1.05cqw;font-weight:500}
+.cpair .cr{font-family:'Inter',sans-serif;font-size:.78cqw;font-weight:600;letter-spacing:.12em}
+
+/* ---------- typography section ---------- */
+.spec-aa{font-size:9cqw;font-weight:300;line-height:1;color:var(--ink)}
+.alpha{font-family:inherit;font-size:1.25cqw;line-height:1.8;color:var(--navy);margin-top:1.6cqw;word-break:break-all}
+.type-scale{display:flex;flex-direction:column;gap:1.5cqw;justify-content:center;width:100%}
+.ts-row{display:grid;grid-template-columns:12cqw 1fr;align-items:baseline;border-bottom:1px solid #e5edf4;padding-bottom:1.2cqw}
+.ts-row .tl{font-family:'Inter',sans-serif;font-size:.78cqw;color:var(--steel);letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.anatomy{background:#F4F9FD;border-radius:1.3cqw;padding:2.6cqw 2.8cqw;height:fit-content}
+.an-item{display:grid;grid-template-columns:1fr auto;gap:2cqw;border-bottom:1px solid #dfe9f2;padding:.8cqw 0;font-family:'Inter',sans-serif;font-size:.82cqw;color:#33475b}
+.an-item b{color:var(--ink);font-weight:600}
+
+/* ---------- imagery ---------- */
+.photo-ph{border-radius:1.3cqw;position:relative;overflow:hidden;height:100%;display:flex;align-items:flex-end;padding:1.6cqw}
+.photo-ph .pp{font-family:'Inter',sans-serif;font-size:.68cqw;line-height:1.5;color:rgba(255,255,255,.75);background:rgba(0,15,34,.45);border-radius:.7cqw;padding:.9cqw 1.1cqw;backdrop-filter:blur(4px)}
+.checks{display:flex;flex-direction:column;gap:1cqw;margin-top:2cqw}
+.checks .ck{display:flex;gap:1cqw;align-items:baseline;font-family:'Inter',sans-serif;font-size:.95cqw;color:#2c3e50}
+.checks .ck b{color:var(--steel);font-weight:600}
+.checks .ck.no b{color:#b96a6a}
+.icon-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.8cqw;align-content:center;width:100%}
+.ic{display:flex;flex-direction:column;align-items:center;gap:.9cqw}
+.ic svg{width:3.4cqw;height:3.4cqw;stroke:var(--navy);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic span{font-family:'Inter',sans-serif;font-size:.72cqw;color:var(--steel);letter-spacing:.08em}
+
+/* ---------- in action ---------- */
+.mock-card{border-radius:1cqw;box-shadow:0 16px 44px rgba(0,15,34,.18);overflow:hidden}
+.pack{background:#fff;border:1px solid #e2ebf3;border-radius:1cqw;padding:1.8cqw 1.8cqw 4.6cqw;position:relative;overflow:hidden}
+.pack .pk-cat{font-size:.62cqw;letter-spacing:.3em;color:var(--clinical);text-transform:uppercase;font-weight:600}
+.pack .pk-name{font-size:2.1cqw;font-weight:500;color:var(--royal);letter-spacing:.02em;margin-top:.7cqw}
+.pack .pk-gen{font-family:'Inter',sans-serif;font-size:.92cqw;color:#33475b;margin-top:.2cqw}
+.pack .pk-str{font-size:1.25cqw;font-weight:600;color:var(--ink);margin-top:.8cqw}
+.pack .pk-form{font-family:'Inter',sans-serif;font-size:.78cqw;color:var(--steel);margin-top:.2cqw}
+.social{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8cqw;width:100%;align-content:center}
+.post{aspect-ratio:1;border-radius:1.1cqw;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:1.4cqw}
+.post .chip{position:absolute;top:1.2cqw;right:1.2cqw;background:rgba(255,255,255,.92);color:var(--navy);font-size:.6cqw;font-weight:600;letter-spacing:.22em;padding:.4cqw .8cqw;border-radius:100px;text-transform:uppercase}
+.post .p-logo{position:absolute;top:1.2cqw;left:1.2cqw;background:#fff;border-radius:.5cqw;padding:.35cqw .55cqw}
+.post .p-logo img{height:1cqw;display:block}
+.post h5{color:#fff;font-weight:400;font-size:1.25cqw;line-height:1.3}
+.post .p-sub{color:rgba(255,255,255,.75);font-family:'Inter',sans-serif;font-size:.7cqw;margin-top:.4cqw}
+
+/* ---------- MIY ---------- */
+.recipe{display:grid;grid-template-columns:1fr 1.3fr;gap:2cqw;align-items:center;background:#F4F9FD;border-radius:1.3cqw;padding:2cqw}
+.recipe .r-visual{aspect-ratio:4/5;border-radius:1cqw;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:1.3cqw}
+.recipe .r-prompt{font-family:'Inter',sans-serif;font-size:.72cqw;line-height:1.6;color:#4a6076}
+.recipe .r-prompt b{color:var(--navy)}
+.basegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6cqw;width:100%;align-content:center}
+.baseprompt{background:#F4F9FD;border-radius:1.1cqw;padding:1.6cqw}
+.baseprompt h4{font-size:.78cqw;letter-spacing:.3em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:.9cqw}
+.baseprompt p{font-family:'Inter',sans-serif;font-size:.74cqw;line-height:1.6;color:#4a6076}
+
+/* ---------- closing + download ---------- */
+.dl-btn{position:fixed;right:2.2vw;bottom:2.2vw;z-index:50;background:#fff;color:var(--ink);
+  font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  border:none;border-radius:100px;padding:16px 26px;cursor:pointer;box-shadow:0 12px 40px rgba(0,0,0,.45)}
+.dl-btn:hover{background:var(--sky)}
+.closing .s-body{flex-direction:column;justify-content:center;align-items:flex-start}
+
+/* ---------- print ---------- */
+@media print{
+  @page{size:16in 9in;margin:0}
+  body{background:#fff}
+  .spread{width:16in;height:9in;aspect-ratio:auto;margin:0;border-radius:0;page-break-after:always;break-inside:avoid}
+  .dl-btn{display:none}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media (max-width:820px){
+  .s-head,.s-foot{letter-spacing:.22em}
+}
+</style>
+</head>
+<body>
+
+<!-- 01 · COVER -->
+<section class="spread dark cover" id="cover">
+  <div class="cover-glow"></div>
+  <svg class="swoosh" viewBox="0 0 1600 900" style="inset:0;width:100%;height:100%" preserveAspectRatio="none">
+    <path d="M-50 640 C 420 470, 1180 470, 1650 620" stroke="rgba(128,170,211,.28)" stroke-width="2.5" fill="none"/>
+    <path d="M-50 700 C 420 520, 1180 520, 1650 680" stroke="rgba(192,230,253,.14)" stroke-width="1.5" fill="none"/>
+  </svg>
+  <header class="s-head"><span>Brand Book</span><span>Version 1.0 · 2026</span></header>
+  <div class="s-body">
+    <div class="logo-holder"><img src="logo-trans.png" alt="MaxiTech logo"></div>
+    <h1>MaxiTech Pharma</h1>
+    <div class="sub">A Legacy of Brilliance in Care</div>
+  </div>
+  <footer class="s-foot"><span>Brand &amp; Identity Guidelines</span><span>Designed by Stryde Studios</span></footer>
+</section>
+
+<!-- 02 · CONTENTS -->
+<section class="spread" id="contents">
+  <header class="s-head"><span>MaxiTech Pharma · Brand Book</span><span>Contents</span></header>
+  <div class="s-body">
+    <div class="toc">
+      <div>
+        <div class="knum">CONTENTS</div>
+        <h2 class="disp">What's<br>inside</h2>
+        <p class="body">Eight sections that define how MaxiTech Pharma looks, sounds and behaves — plus a toolkit for making on-brand material yourself.</p>
+      </div>
+      <ul class="toc-list">
+        <li><a href="#s1"><span class="n">01</span><span class="t">Brand Essence</span><span class="p">04</span></a></li>
+        <li><a href="#s2"><span class="n">02</span><span class="t">Voice &amp; Tone</span><span class="p">11</span></a></li>
+        <li><a href="#s3"><span class="n">03</span><span class="t">Logo System</span><span class="p">16</span></a></li>
+        <li><a href="#s4"><span class="n">04</span><span class="t">Colour</span><span class="p">24</span></a></li>
+        <li><a href="#s5"><span class="n">05</span><span class="t">Typography</span><span class="p">30</span></a></li>
+        <li><a href="#s6"><span class="n">06</span><span class="t">Imagery &amp; Elements</span><span class="p">36</span></a></li>
+        <li><a href="#s7"><span class="n">07</span><span class="t">Brand in Action</span><span class="p">40</span></a></li>
+        <li><a href="#s8"><span class="n">08</span><span class="t">Make It Yourself</span><span class="p">46</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <footer class="s-foot"><span>02</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 03 · HOW TO USE -->
+<section class="spread sky" id="howto">
+  <header class="s-head"><span>MaxiTech Pharma · Brand Book</span><span>How to Use</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">READ ME FIRST</div>
+        <h2 class="disp">A living book,<br>not a rulebook.</h2>
+        <p class="body">This book holds the MaxiTech Pharma identity: the logo, the colours, the type and the tone. Follow it and everything we make — from a carton to a conference booth — will feel like it came from the same place, because it did.</p>
+        <p class="body">The final section, <b>Make It Yourself</b>, hands you ready-made prompts so anyone on the team can generate an on-brand product card, post or banner in minutes. One hard rule: nothing generated ever carries a medical claim without review.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><h4>Digital</h4><p>View or share the PDF. Prompts are selectable: copy, paste, adjust the product and go.</p></div>
+        <div class="card"><h4>Print</h4><p>Every spread is print-ready at 16:9. Export straight to a press-ready PDF.</p></div>
+        <div class="card"><h4>One Source of Truth</h4><p>When in doubt, this book wins. Keep it close whenever you make something branded.</p></div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>03</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 04 · DIVIDER 01 ESSENCE -->
+<section class="spread divider" id="s1">
+  <div class="div-art art-essence"></div><div class="grain"></div>
+  <header class="s-head"><span>MaxiTech Pharma · Brand Book</span><span>Section 01</span></header>
+  <div class="s-body">
+    <div class="big-n">01</div>
+    <h2>ESSENCE</h2>
+    <p class="dlede">Twenty-five years of care. One unbroken standard.</p>
+  </div>
+  <div class="prompt"><b>IMAGE PROMPT:</b> Gloved researcher hands lifting a glass vial toward soft light in a bright pharmaceutical cleanroom, deep navy and sky-blue tones, calm and precise, cinematic clinical light, photoreal, 16:9. Generate with GPT Image / Nano Banana Pro, then replace this divider background.</div>
+  <footer class="s-foot"><span>04</span><span class="tag"></span></footer>
+</section>
+
+<!-- 05 · 01.1 OUR STORY -->
+<section class="spread">
+  <header class="s-head"><span>01 · Essence</span><span>Our Story</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">01.1</div>
+        <h2 class="disp">A legacy built<br>on quality.</h2>
+        <p class="body">MaxiTech Pharma began its journey in Karachi in 2001 with a specialty in dermatology and cosmetology, and a conviction that quality is not a department — it is the whole company.</p>
+        <p class="body">In 2016 we opened a state-of-the-art cGMP manufacturing plant, divided into fourteen specialised zones. In 2020 the journey went international. The specialty widened; the standard never moved.</p>
+      </div>
+      <div class="photo-ph" style="background:url('img/ph-lab.jpg') center/cover no-repeat"></div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>05</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 06 · 01.2 MISSION -->
+<section class="spread dark">
+  <svg class="swoosh" viewBox="0 0 1600 900" style="inset:0;width:100%;height:100%" preserveAspectRatio="none">
+    <path d="M-50 700 C 450 540, 1150 540, 1650 700" stroke="rgba(128,170,211,.22)" stroke-width="2" fill="none"/>
+  </svg>
+  <header class="s-head"><span>01 · Essence</span><span>Mission</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center;align-items:flex-start">
+    <div class="knum" style="color:var(--sky)">01.2 · OUR MISSION</div>
+    <h2 class="disp" style="font-size:3.1cqw;max-width:60cqw">To enhance health and well-being at every stage of life — through scientific innovation and global resources.</h2>
+    <p class="lede" style="color:rgba(255,255,255,.7);max-width:48cqw">Excellence in the lab, flexibility in the market, and a working culture that makes both sustainable.</p>
+  </div>
+  <footer class="s-foot"><span>06</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 07 · 01.3 VISION -->
+<section class="spread">
+  <header class="s-head"><span>01 · Essence</span><span>Vision</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center;align-items:flex-start">
+    <div class="knum">01.3</div>
+    <h2 class="disp">The name prescribers<br>trust, everywhere.</h2>
+    <p class="lede" style="max-width:52cqw">To be recognised nationally and internationally for one thing above all: an uncompromised commitment to quality. Growth, for us, is measured in the confidence of the professionals who choose our medicines — and choose them again.</p>
+  </div>
+  <footer class="s-foot"><span>07</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 08 · 01.4 THE PROMISE -->
+<section class="spread sky">
+  <header class="s-head"><span>01 · Essence</span><span>The Promise</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center;align-items:flex-start">
+    <div class="knum" style="color:var(--steel)">01.4 · THE PROMISE</div>
+    <h2 class="disp">Quality &amp; care, for the health<br>of human beings.</h2>
+    <p class="lede" style="max-width:52cqw">Every product that leaves our plant carries the same promise, whether it ships to a pharmacy in Karachi or a distributor across the world: made with discipline, priced with conscience, and accountable at every step of its life.</p>
+  </div>
+  <footer class="s-foot"><span>08</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 09 · 01.5 PILLARS -->
+<section class="spread">
+  <header class="s-head"><span>01 · Essence</span><span>Brand Pillars</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:2.6cqw">
+      <div class="knum">01.5</div>
+      <h2 class="disp" style="font-size:2.8cqw">Three pillars hold everything up.</h2>
+    </div>
+    <div class="trio">
+      <div class="pillar"><div class="pn">01</div><h3>Quality</h3><p>cGMP-aligned manufacturing across fourteen specialised zones, verified by an advanced QC and microbiology laboratory. Quality is everyone's job description.</p></div>
+      <div class="pillar"><div class="pn">02</div><h3>Care</h3><p>The patient sits at the centre of every decision. Medicines priced to be reachable, regardless of socioeconomic background — because access is part of care.</p></div>
+      <div class="pillar"><div class="pn">03</div><h3>Science</h3><p>From dermatology and cosmetology to specialised injectables, we push pharmacological knowledge forward and put it to work where it improves lives.</p></div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>09</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 10 · 01.6 PERSONALITY -->
+<section class="spread">
+  <header class="s-head"><span>01 · Essence</span><span>Personality &amp; Positioning</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">01.6 · PERSONALITY</div>
+        <h2 class="disp" style="font-size:2.9cqw">Precise, caring,<br>scientific, assured.</h2>
+        <p class="body">If MaxiTech Pharma were a person, they would be the specialist everyone in the room defers to: rigorous with the evidence, warm with the patient, and never selling harder than the science allows.</p>
+      </div>
+      <div class="pairs" style="align-self:center">
+        <div class="pair"><span class="yes">Precise</span><span class="not">not cold</span></div>
+        <div class="pair"><span class="yes">Caring</span><span class="not">not sentimental</span></div>
+        <div class="pair"><span class="yes">Confident</span><span class="not">not promotional</span></div>
+        <div class="pair"><span class="yes">Scientific</span><span class="not">not impenetrable</span></div>
+        <div class="pair"><span class="yes">Modern</span><span class="not">not trendy</span></div>
+        <div class="pair"><span class="yes">Global</span><span class="not">not rootless</span></div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>10</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 11 · DIVIDER 02 VOICE -->
+<section class="spread divider" id="s2">
+  <div class="div-art art-voice"></div><div class="grain"></div>
+  <header class="s-head"><span>MaxiTech Pharma · Brand Book</span><span>Section 02</span></header>
+  <div class="s-body">
+    <div class="big-n">02</div>
+    <h2>VOICE</h2>
+    <p class="dlede">How MaxiTech Pharma sounds: clear, measured, and quietly humane.</p>
+  </div>
+  <div class="prompt"><b>IMAGE PROMPT:</b> A pharmacist in a bright clinic counselling a patient across a clean counter, soft natural light, calm trust, subtle navy-blue colour grade, photoreal, 16:9. Generate then replace this background.</div>
+  <footer class="s-foot"><span>11</span><span class="tag"></span></footer>
+</section>
+
+<!-- 12 · 02.1 TONE PRINCIPLES -->
+<section class="spread">
+  <header class="s-head"><span>02 · Voice</span><span>Tone Principles</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:2.4cqw">
+      <div class="knum">02.1</div>
+      <h2 class="disp" style="font-size:2.8cqw">We write the way we manufacture: controlled.</h2>
+    </div>
+    <div class="trio">
+      <div class="pillar"><h3>Clear</h3><p>Short sentences, exact words. Product names, strengths and directions are never ambiguous — clarity is a safety feature, not a style choice.</p></div>
+      <div class="pillar"><h3>Measured</h3><p>We state what the evidence supports and stop there. No superlatives, no hype. Confidence comes from precision, not volume.</p></div>
+      <div class="pillar"><h3>Humane</h3><p>Behind every prescription is a person. When we speak about patients, warmth is allowed in — plain language, respect, and reassurance.</p></div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>12</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 13 · 02.2 WRITING IN PRACTICE -->
+<section class="spread">
+  <header class="s-head"><span>02 · Voice</span><span>Writing in Practice</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">02.2</div>
+        <h2 class="disp" style="font-size:2.9cqw">Say it the<br>MaxiTech way.</h2>
+        <p class="body">Same message, better delivery. Lead with the fact, keep it human, and never let marketing outrun the medicine.</p>
+      </div>
+      <div class="dd">
+        <div class="row"><span class="mark">✓</span><span class="q">"MAXINOIN 20 mg soft gelatin capsules are now available through your distributor. Full prescribing information enclosed."</span></div>
+        <div class="row bad"><span class="mark">✕</span><span class="q">"MIRACLE acne cure!! Get FLAWLESS skin overnight — guaranteed!! 🔥"</span></div>
+        <div class="row"><span class="mark">✓</span><span class="q">"Quality and care, for the health of human beings."</span></div>
+        <div class="row bad"><span class="mark">✕</span><span class="q">"Pakistan's #1 BEST pharma company — results you won't believe!"</span></div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>13</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 14 · 02.3 APPROVED LINES -->
+<section class="spread">
+  <header class="s-head"><span>02 · Voice</span><span>Boilerplate &amp; Taglines</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div class="lines">
+        <div class="knum">02.3 · APPROVED LINES</div>
+        <div class="lbl">Primary Tagline</div>
+        <div class="val">A legacy of brilliance in care.</div>
+        <div class="lbl">Quality Line</div>
+        <div class="val" style="font-size:1.35cqw">We believe in quality &amp; care for the health of human beings.</div>
+        <div class="lbl">Support Line</div>
+        <div class="val" style="font-size:1.35cqw">Twenty-five years of care. One unbroken standard.</div>
+      </div>
+      <div class="lines" style="align-self:center">
+        <div class="lbl">Boilerplate · One Paragraph</div>
+        <div class="val small">MaxiTech Pharma (Pvt) Ltd. is a Karachi-based pharmaceutical manufacturer, established in 2001, with a specialty in dermatology and cosmetology and a portfolio spanning general and specialised medicines. From a cGMP-aligned plant of fourteen manufacturing zones, its products reach patients across Pakistan and international markets.</div>
+        <div class="lbl">Boilerplate · One Line</div>
+        <div class="val small">A quality-driven pharmaceutical manufacturer. A legacy of brilliance in care.</div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>14</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 15 · 02.4 CLAIMS & COMPLIANCE -->
+<section class="spread">
+  <header class="s-head"><span>02 · Voice</span><span>Claims &amp; Compliance</span></header>
+  <div class="s-body">
+    <div class="cols" style="grid-template-columns:1fr 1.4fr">
+      <div>
+        <div class="knum">02.4</div>
+        <h2 class="disp" style="font-size:2.8cqw">The words carry<br>a licence.</h2>
+        <p class="body">Pharmaceutical language is regulated language. These rules apply to every asset — packaging, detail aids, social posts, and anything generated from Section 08.</p>
+      </div>
+      <div class="rules">
+        <div class="rule"><span class="rn">R1</span><div><h4>No cure claims</h4><p>Never "cures", "guaranteed", "miracle", or "100% safe". State the indication as registered; nothing more.</p></div></div>
+        <div class="rule"><span class="rn">R2</span><div><h4>Name, strength, form — always exact</h4><p>Brand name, generic name, strength and dosage form appear exactly as registered with DRAP. No abbreviations on patient-facing material.</p></div></div>
+        <div class="rule"><span class="rn">R3</span><div><h4>Audience separation</h4><p>Prescription products are promoted to healthcare professionals only. Consumer-facing material is limited to OTC lines.</p></div></div>
+        <div class="rule"><span class="rn">R4</span><div><h4>Pharmacovigilance is visible</h4><p>Adverse-reaction reporting ("Report Drug Reaction") is part of the brand. Carry the reporting line on collateral where space allows.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>15</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 16 · DIVIDER 03 LOGO -->
+<section class="spread divider" id="s3">
+  <div class="div-art art-logo"></div><div class="grain"></div>
+  <header class="s-head"><span>MaxiTech Pharma · Brand Book</span><span>Section 03</span></header>
+  <div class="s-body">
+    <div class="big-n">03</div>
+    <h2>LOGO</h2>
+    <p class="dlede">The mark, its construction, and the rules that keep it recognisable everywhere.</p>
+  </div>
+  <div class="prompt"><b>IMAGE PROMPT:</b> Modern pharmaceutical facility exterior at dusk, illuminated MAXITECH signage catching cool blue light, clean architectural lines, cinematic, photoreal, 16:9. Generate then replace.</div>
+  <footer class="s-foot"><span>16</span><span class="tag"></span></footer>
+</section>
+
+<!-- 17 · 03.1 PRIMARY LOCKUP -->
+<section class="spread">
+  <header class="s-head"><span>03 · Logo</span><span>The Primary Lockup</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">03.1</div>
+        <h2 class="disp" style="font-size:2.9cqw">The primary<br>lockup.</h2>
+        <p class="body">The mark joins two parts: the <b>MAXITECH</b> wordmark in bold capitals, orbited by two sweeping arcs — a sky-blue swoosh above and a deep navy swoosh below. Together they read as motion around a stable core: science in service of care.</p>
+        <p class="body">This is the primary, first-use identity. It is never redrawn, recoloured or rebuilt — only placed, sized and given room to breathe. The wordmark's colours are fixed, anchored by Logo Royal <b>#002B71</b>.</p>
+      </div>
+      <div class="logo-stage">
+        <img src="logo-trans.png" alt="MaxiTech primary logo">
+        <div class="stage-cap">Primary logo · full lockup</div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>17</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 18 · 03.2 CONSTRUCTION -->
+<section class="spread">
+  <header class="s-head"><span>03 · Logo</span><span>Construction &amp; Grid</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">03.2</div>
+        <h2 class="disp" style="font-size:2.9cqw">Built on<br>a grid.</h2>
+        <p class="body">Set the lockup on an 8 × 8 grid. The wordmark sits on the central horizontal axis; the upper swoosh enters at the top-left quadrant and exits above the final letter; the lower swoosh mirrors it beneath. Use the grid to place and align the mark — never to redraw it.</p>
+        <p class="body">Because the proportions are locked, never stretch, condense or rebuild the mark. Always scale it as one whole.</p>
+      </div>
+      <div class="logo-stage">
+        <div class="gridlines"></div>
+        <img src="logo-trans.png" alt="MaxiTech logo on construction grid" style="width:48%">
+        <div class="stage-cap">8 × 8 construction grid</div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>18</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 19 · 03.3 CLEAR SPACE -->
+<section class="spread">
+  <header class="s-head"><span>03 · Logo</span><span>Clear Space &amp; Minimum Size</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">03.3</div>
+        <h2 class="disp" style="font-size:2.9cqw">Give it room<br>to breathe.</h2>
+        <p class="body">Keep a minimum clear space of X on every side, where <b>X = 50% of the wordmark's height</b>. Nothing enters this zone: not type, not image edges, not other logos.</p>
+        <div style="display:flex;gap:4cqw">
+          <div class="stat"><div class="sv">≥ 40px</div><div class="sl">Clear space at 80px logo height</div></div>
+          <div class="stat"><div class="sv">90px</div><div class="sl">Minimum width · 24mm print</div></div>
+        </div>
+      </div>
+      <div class="clear-demo">
+        <div class="clear-box">
+          <img src="logo-trans.png" alt="MaxiTech logo clear space">
+          <span class="xmark" style="top:1.2cqw;left:50%;transform:translateX(-50%)">X</span>
+          <span class="xmark" style="bottom:1.2cqw;left:50%;transform:translateX(-50%)">X</span>
+          <span class="xmark" style="left:1.4cqw;top:50%;transform:translateY(-50%)">X</span>
+          <span class="xmark" style="right:1.4cqw;top:50%;transform:translateY(-50%)">X</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>19</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 20 · 03.4 VARIATIONS -->
+<section class="spread">
+  <header class="s-head"><span>03 · Logo</span><span>Variations</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:2.2cqw">
+      <div class="knum">03.4</div>
+      <h2 class="disp" style="font-size:2.8cqw">One mark, light or dark.</h2>
+    </div>
+    <div class="tiles" style="grid-template-columns:repeat(3,1fr)">
+      <div class="tile" style="background:#fff;border:1px solid #e2ebf3">
+        <img src="logo-trans.png" alt="Logo on white">
+        <div class="tcap">Light backgrounds · the default</div>
+      </div>
+      <div class="tile" style="background:linear-gradient(135deg,#000F22,#1B3554)">
+        <div class="mini-holder"><img src="logo-trans.png" alt="Logo in holder on dark"></div>
+        <div class="tcap" style="color:rgba(255,255,255,.6)">Dark backgrounds · white holder</div>
+      </div>
+      <div class="tile" style="background:radial-gradient(60% 80% at 30% 30%,rgba(192,230,253,.5),transparent),linear-gradient(120deg,#3F6593,#80AAD3)">
+        <div class="mini-holder"><img src="logo-trans.png" alt="Logo in holder on photo"></div>
+        <div class="tcap" style="color:rgba(255,255,255,.75)">Busy imagery · always in a holder</div>
+      </div>
+    </div>
+    <p class="fine" style="margin-top:2cqw">A dedicated dark-background version (white wordmark) should be produced from the master artwork and supplied by the client or redrawn with approval — until then, the white holder is the rule on any non-light surface.</p>
+  </div>
+  <footer class="s-foot"><span>20</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 21 · 03.5 THE SWOOSH -->
+<section class="spread dark">
+  <svg class="swoosh" viewBox="0 0 1600 900" style="inset:0;width:100%;height:100%" preserveAspectRatio="none">
+    <path d="M-60 560 C 400 380, 1200 380, 1660 560" stroke="rgba(192,230,253,.5)" stroke-width="4" fill="none"/>
+    <path d="M-60 640 C 400 460, 1200 460, 1660 640" stroke="rgba(128,170,211,.25)" stroke-width="2" fill="none"/>
+  </svg>
+  <header class="s-head"><span>03 · Logo</span><span>The Swoosh</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum" style="color:var(--sky)">03.5 · THE MOTIF</div>
+        <h2 class="disp" style="font-size:2.9cqw">The care arc,<br>on its own.</h2>
+        <p class="body">Where the full lockup will not fit — app icons, favicons, stamps, carton edges — the twin swoosh stands in for it: two arcs, sky over navy, sweeping around an invisible centre.</p>
+        <p class="body">Use it at small sizes or as a large cropped background motif. It never replaces the lockup for primary identification.</p>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center">
+        <svg viewBox="0 0 200 120" style="width:60%">
+          <path d="M20 45 C 60 18, 140 18, 180 40" stroke="#C0E6FD" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <path d="M20 80 C 60 104, 140 104, 180 76" stroke="#5B86B6" stroke-width="9" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>21</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 22 · 03.6 BACKGROUNDS & PLACEMENT -->
+<section class="spread">
+  <header class="s-head"><span>03 · Logo</span><span>Backgrounds &amp; Placement</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:2.2cqw">
+      <div class="knum">03.6</div>
+      <h2 class="disp" style="font-size:2.8cqw">Where the mark can sit.</h2>
+    </div>
+    <div class="tiles">
+      <div class="tile" style="background:#fff;border:1px solid #e2ebf3"><span class="tv ok">✓</span><img src="logo-trans.png"><div class="tcap">White</div></div>
+      <div class="tile" style="background:linear-gradient(135deg,#EAF6FF,#C0E6FD)"><span class="tv ok">✓</span><img src="logo-trans.png"><div class="tcap">Sky wash</div></div>
+      <div class="tile" style="background:linear-gradient(135deg,#000F22,#1B3554)"><span class="tv ok">✓</span><div class="mini-holder"><img src="logo-trans.png"></div><div class="tcap" style="color:rgba(255,255,255,.6)">Navy + holder</div></div>
+      <div class="tile" style="background:#5B86B6"><span class="tv no">✕</span><img src="logo-trans.png" style="opacity:.65"><div class="tcap" style="color:rgba(255,255,255,.75)">Bare on mid-tone</div></div>
+    </div>
+    <p class="fine" style="margin-top:2cqw"><b>PLACEMENT:</b> anchor the mark to a corner with ≥ 48px margin (print: 16mm). On photography, always use the white holder with 24px internal padding and a 20px corner radius.</p>
+  </div>
+  <footer class="s-foot"><span>22</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 23 · 03.7 MISUSE -->
+<section class="spread">
+  <header class="s-head"><span>03 · Logo</span><span>Misuse</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:2.2cqw">
+      <div class="knum">03.7</div>
+      <h2 class="disp" style="font-size:2.8cqw">Never do these.</h2>
+    </div>
+    <div class="tiles">
+      <div class="tile" style="background:#F4F9FD"><span class="tv no">✕</span><img src="logo-trans.png" style="transform:scaleX(1.5)"><div class="tcap">Don't stretch</div></div>
+      <div class="tile" style="background:#F4F9FD"><span class="tv no">✕</span><img src="logo-trans.png" style="filter:hue-rotate(120deg) saturate(2)"><div class="tcap">Don't recolour</div></div>
+      <div class="tile" style="background:#F4F9FD"><span class="tv no">✕</span><img src="logo-trans.png" style="transform:rotate(-18deg);filter:drop-shadow(6px 6px 4px rgba(0,0,0,.4))"><div class="tcap">Don't rotate / add effects</div></div>
+      <div class="tile" style="background:#F4F9FD;overflow:hidden"><span class="tv no">✕</span><img src="logo-trans.png" style="width:120%;margin-left:30%"><div class="tcap">Don't crowd / crop</div></div>
+    </div>
+    <p class="fine" style="margin-top:2cqw">The logo is fixed. Do not redraw it, change its colours, add effects or shadows, place it on a busy background without a holder, or reconstruct it from parts.</p>
+  </div>
+  <footer class="s-foot"><span>23</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 24 · DIVIDER 04 COLOUR -->
+<section class="spread divider" id="s4">
+  <div class="div-art art-colour"></div><div class="grain"></div>
+  <header class="s-head"><span>MaxiTech Pharma · Brand Book</span><span>Section 04</span></header>
+  <div class="s-body">
+    <div class="big-n">04</div>
+    <h2>COLOUR</h2>
+    <p class="dlede">A single sky-to-ink ramp. Clinical, calm, and quietly confident.</p>
+  </div>
+  <div class="prompt"><b>IMAGE PROMPT:</b> Macro photograph of blue liquid gradients in laboratory glassware, sky-blue to deep navy, soft studio light, minimal and precise, photoreal, 16:9. Generate then replace.</div>
+  <footer class="s-foot"><span>24</span><span class="tag"></span></footer>
+</section>
+
+<!-- 25 · 04.1 PRIMARY PALETTE -->
+<section class="spread">
+  <header class="s-head"><span>04 · Colour</span><span>Primary Palette</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center;gap:2cqw">
+    <div class="pills">
+      <div class="pillsw" style="background:#C0E6FD"><span class="ph" style="color:#1B3554">Sky Wash · #C0E6FD</span></div>
+      <div class="pillsw" style="background:#80AAD3"><span class="ph" style="color:#000F22">Powder Blue · #80AAD3</span></div>
+      <div class="pillsw" style="background:#5B86B6"><span class="ph" style="color:#fff">Clinical Blue · #5B86B6</span></div>
+      <div class="pillsw" style="background:#3F6593"><span class="ph" style="color:#fff">Steel Blue · #3F6593</span></div>
+      <div class="pillsw" style="background:#1B3554"><span class="ph" style="color:#C0E6FD">Deep Navy · #1B3554</span></div>
+      <div class="pillsw" style="background:#000F22"><span class="ph" style="color:#80AAD3">Ink Navy · #000F22</span></div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>25</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 26 · 04.2 SPECIFICATIONS -->
+<section class="spread">
+  <header class="s-head"><span>04 · Colour</span><span>Specifications</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:1.6cqw">
+      <div class="knum">04.2</div>
+      <h2 class="disp" style="font-size:2.6cqw">Exact values, every medium.</h2>
+    </div>
+    <table class="spec-table">
+      <tr><th></th><th>Name</th><th>HEX</th><th>RGB</th><th>CMYK</th><th>Role</th></tr>
+      <tr><td><span class="dot" style="background:#000F22"></span></td><td>Ink Navy</td><td>#000F22</td><td>0 · 15 · 34</td><td>100 · 56 · 0 · 87</td><td>Deep ink, text</td></tr>
+      <tr><td><span class="dot" style="background:#1B3554"></span></td><td>Deep Navy</td><td>#1B3554</td><td>27 · 53 · 84</td><td>68 · 37 · 0 · 67</td><td>Signature brand</td></tr>
+      <tr><td><span class="dot" style="background:#3F6593"></span></td><td>Steel Blue</td><td>#3F6593</td><td>63 · 101 · 147</td><td>57 · 31 · 0 · 42</td><td>Secondary surface, captions</td></tr>
+      <tr><td><span class="dot" style="background:#5B86B6"></span></td><td>Clinical Blue</td><td>#5B86B6</td><td>91 · 134 · 182</td><td>50 · 26 · 0 · 29</td><td>Accents, charts</td></tr>
+      <tr><td><span class="dot" style="background:#80AAD3"></span></td><td>Powder Blue</td><td>#80AAD3</td><td>128 · 170 · 211</td><td>39 · 19 · 0 · 17</td><td>Soft accents, dividers</td></tr>
+      <tr><td><span class="dot" style="background:#C0E6FD"></span></td><td>Sky Wash</td><td>#C0E6FD</td><td>192 · 230 · 253</td><td>24 · 9 · 0 · 1</td><td>Washes, backgrounds</td></tr>
+      <tr><td><span class="dot" style="background:#FFFFFF;border:1px solid #e2ebf3"></span></td><td>Clinical White</td><td>#FFFFFF</td><td>255 · 255 · 255</td><td>0 · 0 · 0 · 0</td><td>Primary canvas</td></tr>
+      <tr><td><span class="dot" style="background:#002B71"></span></td><td>Logo Royal</td><td>#002B71</td><td>0 · 43 · 113</td><td>100 · 62 · 0 · 56</td><td>Logo only — never for layout</td></tr>
+    </table>
+  </div>
+  <footer class="s-foot"><span>26</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 27 · 04.3 PROPORTION -->
+<section class="spread">
+  <header class="s-head"><span>04 · Colour</span><span>Proportion &amp; Usage</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div class="knum">04.3</div>
+    <h2 class="disp" style="font-size:2.8cqw">Mostly white. Navy carries the weight.</h2>
+    <p class="body" style="max-width:56cqw">Keep layouts predominantly white and clinical. Deep Navy leads for anchors, headers and moments of confidence; Sky Wash softens patient-facing surfaces. Mid-tones are supporting players — never let the palette turn muddy.</p>
+    <div class="prop-bar">
+      <div style="flex:60;background:#fff;border:1px solid #e2ebf3;color:#3F6593">White 60%</div>
+      <div style="flex:20;background:#1B3554;color:#fff">Navy 20%</div>
+      <div style="flex:12;background:#C0E6FD;color:#1B3554">Sky 12%</div>
+      <div style="flex:8;background:#3F6593;color:#fff">Steel 8%</div>
+    </div>
+    <p class="fine" style="margin-top:1.6cqw">A rough guide, not a rule. The point is balance: light dominant, navy deliberate, mid-tones sparing.</p>
+  </div>
+  <footer class="s-foot"><span>27</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 28 · 04.4 TINTS & CATEGORY ACCENTS -->
+<section class="spread">
+  <header class="s-head"><span>04 · Colour</span><span>Tints &amp; Category Accents</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">04.4 · TINTS</div>
+        <h2 class="disp" style="font-size:2.6cqw">Steps for surfaces &amp; data.</h2>
+        <div class="fine" style="margin-top:2cqw;letter-spacing:.22em;text-transform:uppercase;font-weight:600">Deep Navy · tint scale</div>
+        <div class="tintrow">
+          <div style="background:#1B3554;color:#fff">100</div>
+          <div style="background:color-mix(in srgb,#1B3554 80%,white);color:#fff">80</div>
+          <div style="background:color-mix(in srgb,#1B3554 60%,white);color:#fff">60</div>
+          <div style="background:color-mix(in srgb,#1B3554 40%,white);color:#1B3554">40</div>
+          <div style="background:color-mix(in srgb,#1B3554 20%,white);color:#1B3554">20</div>
+          <div style="background:color-mix(in srgb,#1B3554 10%,white);color:#1B3554">10</div>
+        </div>
+        <div class="fine" style="margin-top:1.6cqw;letter-spacing:.22em;text-transform:uppercase;font-weight:600">Clinical Blue · tint scale</div>
+        <div class="tintrow">
+          <div style="background:#5B86B6;color:#fff">100</div>
+          <div style="background:color-mix(in srgb,#5B86B6 80%,white);color:#fff">80</div>
+          <div style="background:color-mix(in srgb,#5B86B6 60%,white);color:#1B3554">60</div>
+          <div style="background:color-mix(in srgb,#5B86B6 40%,white);color:#1B3554">40</div>
+          <div style="background:color-mix(in srgb,#5B86B6 20%,white);color:#1B3554">20</div>
+          <div style="background:color-mix(in srgb,#5B86B6 10%,white);color:#1B3554">10</div>
+        </div>
+      </div>
+      <div>
+        <h2 class="disp" style="font-size:1.9cqw;margin-top:0">Therapeutic category accents</h2>
+        <p class="body">Product families may carry one accent each for shelf recognition — always paired with the core ramp, never replacing it. The accent occupies at most 15% of a layout or pack face.</p>
+        <div class="tintrow" style="margin-top:1.4cqw">
+          <div style="background:#C0E6FD;color:#1B3554;aspect-ratio:2.2">Derma · Sky</div>
+          <div style="background:#5B86B6;color:#fff;aspect-ratio:2.2">General · Clinical</div>
+          <div style="background:#1B3554;color:#fff;aspect-ratio:2.2">Specialised · Navy</div>
+        </div>
+        <p class="fine" style="margin-top:1.4cqw">Assignments shown are working defaults — confirm the final category map with the client before packaging rollout.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>28</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 29 · 04.5 ACCESSIBILITY -->
+<section class="spread">
+  <header class="s-head"><span>04 · Colour</span><span>Accessibility</span></header>
+  <div class="s-body">
+    <div class="cols" style="grid-template-columns:1fr 1.5fr">
+      <div>
+        <div class="knum">04.5</div>
+        <h2 class="disp" style="font-size:2.8cqw">Legible pairings only.</h2>
+        <p class="body">Text must clear WCAG AA (4.5:1 for body, 3:1 for large). These pairings pass. Avoid Powder or Sky for text on white — and on medicine packaging, legibility is a regulatory duty, not a preference.</p>
+      </div>
+      <div class="contrast">
+        <div class="cpair" style="background:#fff;border:1px solid #e2ebf3"><span class="ct" style="color:#000F22">Ink on White</span><span class="cr" style="color:#3F6593">19.2 : 1 · AAA</span></div>
+        <div class="cpair" style="background:#1B3554"><span class="ct" style="color:#fff">White on Deep Navy</span><span class="cr" style="color:#C0E6FD">12.5 : 1 · AAA</span></div>
+        <div class="cpair" style="background:#fff;border:1px solid #e2ebf3"><span class="ct" style="color:#3F6593">Steel on White</span><span class="cr" style="color:#3F6593">6.0 : 1 · AA</span></div>
+        <div class="cpair" style="background:#C0E6FD"><span class="ct" style="color:#1B3554">Navy on Sky Wash</span><span class="cr" style="color:#1B3554">9.5 : 1 · AAA</span></div>
+        <div class="cpair" style="background:#fff;border:1px solid #e2ebf3;opacity:.85"><span class="ct" style="color:#80AAD3">Powder on White</span><span class="cr" style="color:#b96a6a">2.4 : 1 · Fails</span></div>
+        <div class="cpair" style="background:#fff;border:1px solid #e2ebf3;opacity:.85"><span class="ct" style="color:#5B86B6">Clinical on White</span><span class="cr" style="color:#b96a6a">3.8 : 1 · Large only</span></div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>29</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 30 · DIVIDER 05 TYPOGRAPHY -->
+<section class="spread divider" id="s5">
+  <div class="div-art art-type"></div><div class="grain"></div>
+  <header class="s-head"><span>MaxiTech Pharma · Brand Book</span><span>Section 05</span></header>
+  <div class="s-body">
+    <div class="big-n">05</div>
+    <h2>TYPOGRAPHY</h2>
+    <p class="dlede">Poppins leads. Inter does the fine work. Legibility is law.</p>
+  </div>
+  <div class="prompt"><b>IMAGE PROMPT:</b> Elegant macro of a pharmaceutical blister pack on a white surface, generous negative space at left for type, cool blue tone, editorial and minimal, photoreal, 16:9. Generate then replace.</div>
+  <footer class="s-foot"><span>30</span><span class="tag"></span></footer>
+</section>
+
+<!-- 31 · 05.1 POPPINS -->
+<section class="spread">
+  <header class="s-head"><span>05 · Typography</span><span>Primary Typeface</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">05.1</div>
+        <h2 class="disp" style="font-size:2.9cqw">Poppins</h2>
+        <p class="body">Our primary voice — and already the face of maxitechpharma.com, so the brand carries zero migration cost. A geometric sans with open, even forms: modern, stable, and quietly confident. Used for all display, headings and brand lines.</p>
+        <div class="fine" style="margin-top:1.8cqw;letter-spacing:.22em;text-transform:uppercase;font-weight:600">Weights</div>
+        <p class="body" style="margin-top:.5cqw">Light 300 for display · Regular 400 · Medium 500 for emphasis · SemiBold 600 for labels.</p>
+      </div>
+      <div>
+        <div class="spec-aa">Aa</div>
+        <div class="alpha">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 1234567890</div>
+        <p class="lede" style="margin-top:2cqw">A legacy of brilliance in care.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>31</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 32 · 05.2 INTER -->
+<section class="spread">
+  <header class="s-head"><span>05 · Typography</span><span>Support Typeface</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">05.2</div>
+        <h2 class="disp" style="font-size:2.9cqw">Inter</h2>
+        <p class="body">The workhorse. Running body, tables, dosage lines, leaflet text and fine print. Designed for small-size screen legibility — exactly what regulatory and clinical text demands. Its weights give hierarchy where Poppins stays light.</p>
+        <div class="fine" style="margin-top:1.8cqw;letter-spacing:.22em;text-transform:uppercase;font-weight:600">Weights</div>
+        <p class="body" style="margin-top:.5cqw">Regular · Medium · SemiBold · Bold</p>
+      </div>
+      <div style="font-family:'Inter',sans-serif">
+        <div class="spec-aa" style="font-weight:400">Aa</div>
+        <div class="alpha" style="font-family:'Inter',sans-serif">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 1234567890</div>
+        <p class="fine" style="margin-top:2cqw;letter-spacing:.18em;text-transform:uppercase;font-weight:600">Batch No · Reg No · Dosage · Storage · Fine Print</p>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>32</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 33 · 05.3 SCALE -->
+<section class="spread">
+  <header class="s-head"><span>05 · Typography</span><span>Scale &amp; Hierarchy</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:2cqw">
+      <div class="knum">05.3 · SCALE</div>
+      <h2 class="disp" style="font-size:2.6cqw">Four steps. Generous air.</h2>
+    </div>
+    <div class="type-scale">
+      <div class="ts-row"><span class="tl">XL · 64 / 110%</span><span style="font-size:4cqw;font-weight:300">Heading XL</span></div>
+      <div class="ts-row"><span class="tl">L · 48 / 115%</span><span style="font-size:3cqw;font-weight:300">Heading Large</span></div>
+      <div class="ts-row"><span class="tl">M · 32 / 125%</span><span style="font-size:2cqw;font-weight:400">Heading Medium</span></div>
+      <div class="ts-row"><span class="tl">S · 16 / 150%</span><span style="font-size:1cqw;font-weight:600;letter-spacing:.3em;text-transform:uppercase">Heading Small / Label</span></div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>33</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 34 · 05.4 PHARMA TYPE RULES -->
+<section class="spread">
+  <header class="s-head"><span>05 · Typography</span><span>Pharma Type Rules</span></header>
+  <div class="s-body">
+    <div class="cols" style="grid-template-columns:1fr 1.3fr">
+      <div>
+        <div class="knum">05.4</div>
+        <h2 class="disp" style="font-size:2.7cqw">Type that carries<br>a dosage.</h2>
+        <p class="body">On packs, leaflets and detail aids, hierarchy is fixed: brand name leads, generic name follows, strength stands apart. Nothing decorative competes with them.</p>
+      </div>
+      <div class="rules">
+        <div class="rule"><span class="rn">T1</span><div><h4>Brand → generic → strength, in that order</h4><p>Brand name in Poppins Medium caps. Generic name (INN) in Inter, sentence case, always adjacent. Strength in a larger weight, never smaller than the generic.</p></div></div>
+        <div class="rule"><span class="rn">T2</span><div><h4>Fine print has a floor</h4><p>Regulatory text never sets below 7pt in print or 11px on screen. If it doesn't fit, the layout changes — not the type size.</p></div></div>
+        <div class="rule"><span class="rn">T3</span><div><h4>Numerals are lining, spacing is tabular</h4><p>Dosages, batch numbers and dates use tabular figures so columns align and misreads are impossible.</p></div></div>
+        <div class="rule"><span class="rn">T4</span><div><h4>Localisation ready</h4><p>Urdu and export-market translations follow the same hierarchy. Reserve 20% extra space on any bilingual surface.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>34</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 35 · 05.5 TYPE IN USE -->
+<section class="spread">
+  <header class="s-head"><span>05 · Typography</span><span>Type in Use</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="fine" style="letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--clinical)">Dermatology · Rx</div>
+        <h2 class="disp" style="font-size:2.6cqw;margin-top:.8cqw">Acne therapy that<br>holds its standard.</h2>
+        <p class="lede" style="font-size:1.05cqw">MAXINOIN <span style="font-family:'Inter',sans-serif;font-size:.85cqw;color:#3F6593">(isotretinoin)</span> 20 mg soft gelatin capsules.</p>
+        <p class="body">Manufactured in a dedicated soft-gelatin facility under cGMP. Full prescribing information available to registered healthcare professionals.</p>
+        <p class="fine" style="margin-top:1.4cqw">Abridged prescribing information. For healthcare professionals only. Report adverse events to MaxiTech Pharma pharmacovigilance.</p>
+      </div>
+      <div class="anatomy">
+        <div class="fine" style="letter-spacing:.3em;text-transform:uppercase;font-weight:600;margin-bottom:1.2cqw">Anatomy of a layout</div>
+        <div class="an-item"><span>Kicker</span><b>Inter · 12 · tracked caps</b></div>
+        <div class="an-item"><span>Headline</span><b>Poppins Light · 32</b></div>
+        <div class="an-item"><span>Product line</span><b>Poppins Medium · 18</b></div>
+        <div class="an-item"><span>Generic name</span><b>Inter · 14 · steel</b></div>
+        <div class="an-item"><span>Body</span><b>Inter · 16 · 1.7</b></div>
+        <div class="an-item" style="border-bottom:none"><span>Fine print</span><b>Inter · 12 · steel</b></div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>35</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 36 · DIVIDER 06 IMAGERY -->
+<section class="spread divider" id="s6">
+  <div class="div-art art-imagery"></div><div class="grain"></div>
+  <header class="s-head"><span>MaxiTech Pharma · Brand Book</span><span>Section 06</span></header>
+  <div class="s-body">
+    <div class="big-n">06</div>
+    <h2>IMAGERY</h2>
+    <p class="dlede">Bright labs, real people, and the quiet confidence of controlled science.</p>
+  </div>
+  <div class="prompt"><b>IMAGE PROMPT:</b> Dermatologist gently examining a patient's skin in a bright clinic, natural daylight, warm but clinical, cool blue colour grade, calm and trustworthy, photoreal, 16:9. Generate then replace.</div>
+  <footer class="s-foot"><span>36</span><span class="tag"></span></footer>
+</section>
+
+<!-- 37 · 06.1 PHOTOGRAPHY -->
+<section class="spread">
+  <header class="s-head"><span>06 · Imagery</span><span>Photography Direction</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">06.1</div>
+        <h2 class="disp" style="font-size:2.9cqw">Bright, clinical,<br>human.</h2>
+        <p class="body">Choose imagery that feels controlled and trustworthy: daylight labs, clean production lines, real practitioners and patients. Cool blue grade, soft contrast, generous negative space for type.</p>
+        <div class="checks">
+          <div class="ck"><b>✓</b><span>Natural daylight · cool tones · clean surfaces</span></div>
+          <div class="ck"><b>✓</b><span>Real clinical settings · space for type · calm subjects</span></div>
+          <div class="ck no"><b>✕</b><span>Pill piles, stethoscope clichés, staged stock smiles, heavy filters</span></div>
+        </div>
+      </div>
+      <div class="photo-ph" style="background:url('img/ph-production.jpg') center/cover no-repeat"></div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>37</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 38 · 06.2 GRAPHIC ELEMENTS -->
+<section class="spread sky">
+  <svg class="swoosh" viewBox="0 0 1600 900" style="inset:0;width:100%;height:100%" preserveAspectRatio="none">
+    <path d="M-60 620 C 420 440, 1180 440, 1660 620" stroke="rgba(27,53,84,.30)" stroke-width="3" fill="none"/>
+    <path d="M-60 690 C 420 510, 1180 510, 1660 690" stroke="rgba(63,101,147,.18)" stroke-width="1.5" fill="none"/>
+  </svg>
+  <header class="s-head"><span>06 · Imagery</span><span>Graphic Elements</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum" style="color:var(--steel)">06.2</div>
+        <h2 class="disp" style="font-size:2.8cqw">Sky washes &amp;<br>the care arc.</h2>
+        <p class="body">Two supporting motifs: soft sky-wash gradients for calm backgrounds, and the care arc — the twin swoosh drawn from the logo, sweeping behind content like the path of care around a patient.</p>
+        <p class="body">Use sparingly, always behind or beneath content, never competing with the logo or with regulatory text.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.6cqw;justify-content:center">
+        <div style="background:linear-gradient(135deg,#EAF6FF,#C0E6FD);border-radius:1.1cqw;height:9cqw;display:flex;align-items:center;justify-content:center;color:#3F6593;font-size:.8cqw;letter-spacing:.3em;font-weight:600">SKY WASH</div>
+        <div style="background:#fff;border-radius:1.1cqw;height:9cqw;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 400 100" style="position:absolute;inset:0;width:100%;height:100%" preserveAspectRatio="none">
+            <path d="M-10 55 C 100 20, 300 20, 410 50" stroke="#C0E6FD" stroke-width="6" fill="none"/>
+            <path d="M-10 75 C 100 100, 300 100, 410 72" stroke="#5B86B6" stroke-width="6" fill="none"/>
+          </svg>
+          <span style="color:#3F6593;font-size:.8cqw;letter-spacing:.3em;font-weight:600;z-index:1">THE CARE ARC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>38</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 39 · 06.3 ICONOGRAPHY -->
+<section class="spread">
+  <header class="s-head"><span>06 · Imagery</span><span>Iconography</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:2.4cqw">
+      <div class="knum">06.3</div>
+      <h2 class="disp" style="font-size:2.8cqw">One line. Rounded. Clinical.</h2>
+      <p class="body" style="max-width:56cqw">Icons are drawn in a single consistent stroke: 2px, rounded caps and joins, on a 24px grid, in Deep Navy. They clarify, never decorate. Recommended system: Lucide (open-source), tuned to the brand.</p>
+    </div>
+    <div class="icon-grid">
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg><span>Prescribing Info</span></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M10 3v5L4.5 17a3 3 0 0 0 2.6 4.5h9.8a3 3 0 0 0 2.6-4.5L14 8V3"/><path d="M8.5 3h7"/></svg><span>Laboratory</span></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg><span>Quality</span></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2M12 12v4M10 14h4"/></svg><span>Pharmacy</span></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><span>Global Reach</span></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M8 7V5h8v2M4 12h16"/></svg><span>Manufacturing</span></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M5 3h14v6a7 7 0 0 1-14 0z"/></svg><span>Research</span></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12h4l2-5 4 10 2-5h4"/></svg><span>Patient Care</span></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="7"/><path d="M12 5v14"/></svg><span>Capsules</span></div>
+      <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21C7 16.5 4 13 4 9.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 8 3.5c0 3.5-3 7-8 11.5z"/></svg><span>Care</span></div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>39</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 40 · DIVIDER 07 IN ACTION -->
+<section class="spread divider" id="s7">
+  <div class="div-art art-action"></div><div class="grain"></div>
+  <header class="s-head"><span>MaxiTech Pharma · Brand Book</span><span>Section 07</span></header>
+  <div class="s-body">
+    <div class="big-n">07</div>
+    <h2>IN ACTION</h2>
+    <p class="dlede">The brand at work — on cartons, cards, screens and exhibition floors.</p>
+  </div>
+  <div class="prompt"><b>IMAGE PROMPT:</b> Neat rows of blue-and-white pharmaceutical cartons moving along a bright packaging line, shallow depth of field, navy accents, precise and calm, photoreal, 16:9. Generate then replace.</div>
+  <footer class="s-foot"><span>40</span><span class="tag"></span></footer>
+</section>
+
+<!-- 41 · 07.1 STATIONERY -->
+<section class="spread">
+  <header class="s-head"><span>07 · In Action</span><span>Stationery</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">07.1</div>
+        <h2 class="disp" style="font-size:2.9cqw">Cards &amp;<br>correspondence.</h2>
+        <p class="body">Navy card, white reverse, mark in a holder. Letterhead keeps the mark small, top-left, with a generous 48px margin. The care arc may run along the base of the reverse side — never behind text.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.8cqw;justify-content:center">
+        <div class="mock-card" style="background:linear-gradient(135deg,#000F22,#1B3554);padding:2cqw;position:relative;overflow:hidden">
+          <svg viewBox="0 0 400 100" style="position:absolute;bottom:0;left:0;width:100%;height:40%" preserveAspectRatio="none"><path d="M-10 60 C 120 30, 280 30, 410 55" stroke="rgba(192,230,253,.25)" stroke-width="3" fill="none"/></svg>
+          <img src="logo-trans.png" alt="MaxiTech logo" style="width:9cqw;display:block">
+          <div style="color:#fff;font-size:1.15cqw;font-weight:500;margin-top:1.4cqw">Dr. Ayesha Khan</div>
+          <div style="color:#C0E6FD;font-size:.68cqw;letter-spacing:.3em;font-weight:600;margin-top:.3cqw">PRODUCT MANAGER · DERMATOLOGY</div>
+          <div style="color:rgba(255,255,255,.7);font-family:'Inter',sans-serif;font-size:.72cqw;margin-top:1cqw;line-height:1.7">+92 21 36411932 · a.khan@maxitechpharma.com<br>E-178, S.I.T.E., Super Highway Phase-II, Karachi</div>
+        </div>
+        <div class="mock-card" style="background:#fff;border:1px solid #e2ebf3;padding:1.6cqw 2cqw;display:flex;justify-content:space-between;align-items:center">
+          <img src="logo-trans.png" style="width:7cqw">
+          <span class="fine" style="letter-spacing:.24em;text-transform:uppercase;font-weight:600">maxitechpharma.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>41</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 42 · 07.2 PACKAGING -->
+<section class="spread">
+  <header class="s-head"><span>07 · In Action</span><span>Packaging System</span></header>
+  <div class="s-body">
+    <div class="cols" style="grid-template-columns:1.15fr 1fr">
+      <div>
+        <div class="knum">07.2</div>
+        <h2 class="disp" style="font-size:2.7cqw">One carton logic,<br>every product.</h2>
+        <p class="body">Every pack face follows the same order: category accent strip → brand name → generic name → strength → dosage form → count. The logo sits top-left in clear space; the care arc may cross the base. Regulatory panels stay uncluttered and high-contrast.</p>
+        <p class="fine" style="margin-top:1.4cqw">Layouts shown are structural mockups — final packaging requires DRAP-compliant artwork and client sign-off.</p>
+      </div>
+      <div style="display:flex;gap:1.6cqw;align-items:center">
+        <div class="pack" style="flex:1">
+          <svg viewBox="0 0 200 40" preserveAspectRatio="none" style="position:absolute;bottom:0;left:0;width:100%;height:3cqw;opacity:.9"><path d="M-5 22 C 60 8, 140 8, 205 20" stroke="#C0E6FD" stroke-width="3" fill="none"/><path d="M-5 30 C 60 42, 140 42, 205 28" stroke="#5B86B6" stroke-width="3" fill="none"/></svg>
+          <div style="height:.6cqw;background:#C0E6FD;border-radius:100px;margin-bottom:1.2cqw"></div>
+          <div class="pk-cat">Dermatology</div>
+          <div class="pk-name">MAXINOIN</div>
+          <div class="pk-gen">isotretinoin</div>
+          <div class="pk-str">20 mg</div>
+          <div class="pk-form">30 soft gelatin capsules</div>
+        </div>
+        <div class="pack" style="flex:1">
+          <svg viewBox="0 0 200 40" preserveAspectRatio="none" style="position:absolute;bottom:0;left:0;width:100%;height:3cqw;opacity:.9"><path d="M-5 22 C 60 8, 140 8, 205 20" stroke="#C0E6FD" stroke-width="3" fill="none"/><path d="M-5 30 C 60 42, 140 42, 205 28" stroke="#5B86B6" stroke-width="3" fill="none"/></svg>
+          <div style="height:.6cqw;background:#1B3554;border-radius:100px;margin-bottom:1.2cqw"></div>
+          <div class="pk-cat" style="color:#1B3554">Specialised · IV</div>
+          <div class="pk-name">C-PENEM</div>
+          <div class="pk-gen">meropenem</div>
+          <div class="pk-str">250 mg</div>
+          <div class="pk-form">Injection IV · single vial</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>42</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 43 · 07.3 DIGITAL & SOCIAL -->
+<section class="spread">
+  <header class="s-head"><span>07 · In Action</span><span>Digital &amp; Social</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:2cqw">
+      <div class="knum">07.3</div>
+      <h2 class="disp" style="font-size:2.6cqw">Posts &amp; stories.</h2>
+      <p class="body" style="max-width:56cqw">A simple template: full-bleed photo or wash, navy scrim, mark top-left in a holder, headline bottom-left, category chip. Consistent every time — and exactly what the prompts in Section 08 produce.</p>
+    </div>
+    <div class="social">
+      <div class="post" style="background:radial-gradient(70% 80% at 70% 20%,rgba(192,230,253,.5),transparent 60%),linear-gradient(160deg,#5B86B6,#000F22)">
+        <div class="p-logo"><img src="logo-trans.png"></div>
+        <div class="chip">World Skin Health Day</div>
+        <h5>Healthy skin is healthcare.</h5>
+        <div class="p-sub">Awareness · patient education</div>
+      </div>
+      <div class="post" style="background:linear-gradient(165deg,#1B3554,#000F22)">
+        <div class="p-logo"><img src="logo-trans.png"></div>
+        <div class="chip">HCP Only</div>
+        <h5>Now available:<br>ITRAZOX 100 mg.</h5>
+        <div class="p-sub">Distributor announcement</div>
+      </div>
+      <div class="post" style="background:radial-gradient(60% 70% at 30% 80%,rgba(128,170,211,.45),transparent 60%),linear-gradient(145deg,#3F6593,#0a1d38)">
+        <div class="p-logo"><img src="logo-trans.png"></div>
+        <div class="chip">Careers</div>
+        <h5>Science needs<br>good hands.</h5>
+        <div class="p-sub">Recruitment · employer brand</div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>43</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 44 · 07.4 ENVIRONMENT & TRADE -->
+<section class="spread dark">
+  <header class="s-head"><span>07 · In Action</span><span>Environment &amp; Trade</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum" style="color:var(--sky)">07.4 · TRADE &amp; SIGNAGE</div>
+        <h2 class="disp" style="font-size:2.8cqw">Big, calm,<br>unmistakable.</h2>
+        <p class="body">On exhibition booths, facades and signage: one message, one wash, the mark in its holder. Navy or sky. Never crowded. Legible across a conference hall — headline first, details on the counter.</p>
+        <div class="checks">
+          <div class="ck"><b>✓</b><span style="color:rgba(255,255,255,.85)">One headline · one surface colour · the mark</span></div>
+          <div class="ck no"><b>✕</b><span style="color:rgba(255,255,255,.85)">Paragraphs · product lists · clutter</span></div>
+        </div>
+      </div>
+      <div class="photo-ph" style="background:url('img/ph-booth.jpg') center/cover no-repeat;border:1px solid rgba(255,255,255,.08)"></div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>44</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 45 · 07.5 PRODUCT PORTFOLIO -->
+<section class="spread">
+  <header class="s-head"><span>07 · In Action</span><span>Product Portfolio</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:1.1cqw;display:flex;justify-content:space-between;align-items:flex-end;gap:3cqw">
+      <div>
+        <div class="knum">07.5</div>
+        <h2 class="disp" style="font-size:2.4cqw">The portfolio, in hand.</h2>
+      </div>
+      <p class="fine" style="max-width:34cqw;text-align:right">Current commercial pack shots, shown as reference for the packaging system. Official artwork lives with the client; images courtesy of maxitechpharma.com.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.1cqw;width:100%">
+      <div style="background:#F4F9FD;border-radius:1.1cqw;padding:.9cqw;text-align:center">
+        <img src="https://maxitechpharma.com/wp-content/uploads/2023/08/Maxinoin-20mg-3x10s.webp" alt="MAXINOIN 20mg pack" style="width:100%;height:10cqw;object-fit:contain">
+        <div style="font-size:.9cqw;font-weight:500;color:var(--ink);margin-top:.4cqw">MAXINOIN 20 mg</div>
+        <div class="fine">isotretinoin · soft gelatin capsules · dermatology</div>
+      </div>
+      <div style="background:#F4F9FD;border-radius:1.1cqw;padding:.9cqw;text-align:center">
+        <img src="https://maxitechpharma.com/wp-content/uploads/2023/08/Itrazox-100mg.webp" alt="ITRAZOX 100mg pack" style="width:100%;height:10cqw;object-fit:contain">
+        <div style="font-size:.9cqw;font-weight:500;color:var(--ink);margin-top:.4cqw">ITRAZOX 100 mg</div>
+        <div class="fine">itraconazole · capsules · antifungal</div>
+      </div>
+      <div style="background:#F4F9FD;border-radius:1.1cqw;padding:.9cqw;text-align:center">
+        <img src="https://maxitechpharma.com/wp-content/uploads/2023/08/Dimed-Z-10mg.webp" alt="DIMED-Z cream pack" style="width:100%;height:10cqw;object-fit:contain">
+        <div style="font-size:.9cqw;font-weight:500;color:var(--ink);margin-top:.4cqw">DIMED-Z</div>
+        <div class="fine">cream · topical dermatology</div>
+      </div>
+      <div style="background:#F4F9FD;border-radius:1.1cqw;padding:.9cqw;text-align:center">
+        <img src="https://maxitechpharma.com/wp-content/uploads/2023/08/Maxithro-15ml.webp" alt="MAXITHRO suspension pack" style="width:100%;height:10cqw;object-fit:contain">
+        <div style="font-size:.9cqw;font-weight:500;color:var(--ink);margin-top:.4cqw">MAXITHRO 200 mg / 5 ml</div>
+        <div class="fine">azithromycin · suspension · anti-infective</div>
+      </div>
+      <div style="background:#F4F9FD;border-radius:1.1cqw;padding:.9cqw;text-align:center">
+        <img src="https://maxitechpharma.com/wp-content/uploads/2023/08/teno-d.webp" alt="TENO-D 300mg pack" style="width:100%;height:10cqw;object-fit:contain">
+        <div style="font-size:.9cqw;font-weight:500;color:var(--ink);margin-top:.4cqw">TENO-D 300 mg</div>
+        <div class="fine">tenofovir disoproxil fumarate · tablets · antiviral</div>
+      </div>
+      <div style="background:#F4F9FD;border-radius:1.1cqw;padding:.9cqw;text-align:center">
+        <img src="https://maxitechpharma.com/wp-content/uploads/2023/08/C-penem-250mg.webp" alt="C-PENEM 250mg pack" style="width:100%;height:10cqw;object-fit:contain">
+        <div style="font-size:.9cqw;font-weight:500;color:var(--ink);margin-top:.4cqw">C-PENEM 250 mg</div>
+        <div class="fine">meropenem · injection IV · specialised</div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>45</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 45 · DIVIDER 08 MAKE IT YOURSELF -->
+<section class="spread divider" id="s8">
+  <div class="div-art art-miy"></div><div class="grain"></div>
+  <header class="s-head"><span>MaxiTech Pharma · Brand Book</span><span>Section 08</span></header>
+  <div class="s-body">
+    <div class="big-n">08</div>
+    <h2 style="font-size:4.6cqw">MAKE IT YOURSELF</h2>
+    <p class="dlede">On-brand product cards, posts and banners in minutes. Copy a prompt, swap the product, generate — and let medical review see it before it ships.</p>
+  </div>
+  <div class="prompt"><b>HOW IT WORKS:</b> The finished asset is what matters. The prompt beneath it is small on purpose — copy, paste, swap the [BRACKETS], and generate with GPT Image or Nano Banana Pro.</div>
+  <footer class="s-foot"><span>46</span><span class="tag"></span></footer>
+</section>
+
+<!-- 46 · 08.1 RECIPES -->
+<section class="spread">
+  <header class="s-head"><span>08 · Make It Yourself</span><span>Card Recipes</span></header>
+  <div class="s-body" style="align-items:center">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2cqw;width:100%">
+      <div class="recipe">
+        <div class="r-visual" style="background:url('img/ph-branded.jpg') center/cover no-repeat">
+          <div style="background:rgba(0,15,34,.72);border-radius:.8cqw;padding:.9cqw 1.1cqw;backdrop-filter:blur(3px)">
+            <h5 style="color:#fff;font-weight:400;font-size:1cqw;line-height:1.35">Generated example — carton stamped with the MAXITECH mark.</h5>
+            <div style="color:rgba(255,255,255,.7);font-family:'Inter',sans-serif;font-size:.6cqw;margin-top:.3cqw">Made with the prompt on the right · logo attached as reference</div>
+          </div>
+        </div>
+        <div class="r-prompt"><b>PROMPT:</b> Premium product photograph of a white and sky-blue pharmaceutical carton on a clean white studio surface, stamped on its front face with the MAXITECH brand logo — bold dark capitals with a cyan swoosh above and a deep navy swoosh below (attach the official logo file as a reference image for an exact mark). Soft studio light, cool blue tones, minimal, photoreal, [FORMAT]. The MAXITECH logo is the ONLY branding — no other text or brand names. Swap [FORMAT] (4:5 card / 16:9 banner), generate — then route through medical review.</div>
+      </div>
+      <div class="recipe">
+        <div class="r-visual" style="background:linear-gradient(165deg,#C0E6FD,#80AAD3)">
+          <div class="p-logo" style="position:absolute;top:1cqw;left:1cqw;background:#fff;border-radius:.5cqw;padding:.35cqw .55cqw"><img src="logo-trans.png" style="height:.9cqw;display:block"></div>
+          <h5 style="color:#1B3554;font-weight:400;font-size:1.1cqw;line-height:1.35">Twenty-five years<br>of quality &amp; care.</h5>
+          <div style="color:#3F6593;font-family:'Inter',sans-serif;font-size:.6cqw;margin-top:.4cqw">maxitechpharma.com</div>
+        </div>
+        <div class="r-prompt"><b>PROMPT:</b> Corporate pharmaceutical banner, portrait 4:5, brand "MaxiTech Pharma". Soft sky-wash background #C0E6FD with a thin sweeping twin-arc motif in navy. MAXITECH logo in white rounded holder top-left. Deep navy geometric sans headline: "[HEADLINE]". Footer with website. Minimal, clinical, premium, lots of white space, photoreal render. Swap [HEADLINE], generate. No product or medical claims on corporate assets.</div>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>47</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 47 · 08.2 CO-BRANDING -->
+<section class="spread">
+  <header class="s-head"><span>08 · Make It Yourself</span><span>Co-Branding &amp; Partner Lockups</span></header>
+  <div class="s-body">
+    <div class="cols">
+      <div>
+        <div class="knum">08.2</div>
+        <h2 class="disp" style="font-size:2.8cqw">Sharing<br>the frame.</h2>
+        <p class="body">When partnering with a distributor, hospital group or international agency, lock the two marks together as equals: MaxiTech left, partner right, a thin divider between, matched heights, equal clear space.</p>
+        <div class="checks">
+          <div class="ck"><b>✓</b><span>Equal height · 40px between marks · true colours</span></div>
+          <div class="ck no"><b>✕</b><span>Recolour, overlap or shrink either mark</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.6cqw;justify-content:center">
+        <div style="background:#fff;border:1px solid #e2ebf3;border-radius:1.1cqw;padding:2cqw;display:flex;align-items:center;justify-content:center;gap:2cqw">
+          <img src="logo-trans.png" style="width:9cqw">
+          <div style="width:1px;height:4cqw;background:#dce6ee"></div>
+          <div style="width:9cqw;height:3.2cqw;border:1.5px dashed #9fb3c8;border-radius:.6cqw;display:flex;align-items:center;justify-content:center;color:#9fb3c8;font-size:.68cqw;letter-spacing:.22em;font-weight:600">PARTNER LOGO</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#000F22,#1B3554);border-radius:1.1cqw;padding:2cqw;display:flex;align-items:center;justify-content:center;gap:2cqw">
+          <div class="mini-holder"><img src="logo-trans.png" style="width:8cqw;display:block"></div>
+          <div style="width:1px;height:4cqw;background:rgba(255,255,255,.2)"></div>
+          <div class="mini-holder" style="display:flex;align-items:center;justify-content:center;width:9.5cqw;height:3.4cqw"><span style="color:#9fb3c8;font-size:.66cqw;letter-spacing:.2em;font-weight:600">PARTNER LOGO</span></div>
+        </div>
+        <p class="fine" style="text-align:center">On navy, both marks sit in equal-weight holders.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="s-foot"><span>48</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 48 · 08.3 READY-TO-PASTE PROMPTS -->
+<section class="spread">
+  <header class="s-head"><span>08 · Make It Yourself</span><span>Ready-to-Paste Prompts</span></header>
+  <div class="s-body" style="flex-direction:column;justify-content:center">
+    <div style="margin-bottom:2cqw">
+      <div class="knum">08.3 · THE TOOLKIT</div>
+      <h2 class="disp" style="font-size:2.6cqw">Three base prompts. Endless assets.</h2>
+    </div>
+    <div class="basegrid">
+      <div class="baseprompt"><h4>Square Post</h4><p><b>BASE:</b> Square 1:1 MaxiTech Pharma social post. Full-bleed sky-to-navy wash or clean lab photo, navy scrim bottom, logo in white holder top-left, one geometric-sans headline bottom-left, uppercase category chip. Palette navy #1B3554 / sky #C0E6FD / white. Calm, clinical, premium. Add: [TOPIC], [HEADLINE], [AUDIENCE LINE].</p></div>
+      <div class="baseprompt"><h4>Story</h4><p><b>BASE:</b> Vertical 9:16 MaxiTech Pharma story. Full-bleed calm laboratory or clinic photo, navy gradient lower third, logo holder top-left, big headline lower third, small "For healthcare professionals only" line when the subject is Rx. Navy/sky/white palette, uncluttered, photoreal. Add: [THEME], [HEADLINE], [CTA].</p></div>
+      <div class="baseprompt"><h4>Trade Banner</h4><p><b>BASE:</b> Wide 16:9 MaxiTech Pharma congress banner. Deep navy panel with sweeping sky-blue twin-arc motif, logo in white holder top-left, single bold headline "A legacy of brilliance in care", booth number bottom-right. Legible across a hall. Navy/sky/white. Add: [HEADLINE], [BOOTH].</p></div>
+    </div>
+    <p class="fine" style="margin-top:2cqw">Paste into GPT Image, Gemini or Nano Banana Pro, replace the [BRACKETS], generate. Always attach the official MaxiTech logo as a reference image and instruct: "stamp this exact logo on the product — the only branding in the image". Every generated asset passes medical/regulatory review before publication — no exceptions.</p>
+  </div>
+  <footer class="s-foot"><span>49</span><span class="tag">A Legacy of Brilliance in Care</span></footer>
+</section>
+
+<!-- 49 · CLOSING -->
+<section class="spread dark closing">
+  <svg class="swoosh" viewBox="0 0 1600 900" style="inset:0;width:100%;height:100%" preserveAspectRatio="none">
+    <path d="M-50 620 C 420 460, 1180 460, 1650 600" stroke="rgba(192,230,253,.3)" stroke-width="2.5" fill="none"/>
+    <path d="M-50 690 C 420 520, 1180 520, 1650 670" stroke="rgba(128,170,211,.15)" stroke-width="1.5" fill="none"/>
+  </svg>
+  <header class="s-head"><span>MaxiTech Pharma</span><span>Brand Book · V1.0</span></header>
+  <div class="s-body">
+    <h2 class="disp" style="font-size:3.4cqw;max-width:58cqw">Thank you for keeping the standard unbroken.</h2>
+    <p class="lede" style="color:rgba(255,255,255,.7);max-width:44cqw">Use this book often. When something feels off-brand, it usually is. Come back here.</p>
+    <button class="dl-btn" style="position:static;margin-top:2.6cqw;box-shadow:none" onclick="window.print()">Download PDF</button>
+  </div>
+  <footer class="s-foot"><span>50 · A Legacy of Brilliance in Care</span><span>Designed by Stryde Studios</span></footer>
+</section>
+
+<button class="dl-btn" onclick="window.print()">Download PDF</button>
+
+<script>
+// keyboard paging: arrows jump spread to spread
+const spreads=[...document.querySelectorAll('.spread')];
+document.addEventListener('keydown',e=>{
+  if(e.key!=='ArrowDown'&&e.key!=='ArrowUp')return;
+  const y=window.scrollY,vh=innerHeight;
+  let idx=spreads.findIndex(s=>s.offsetTop>y+10);
+  if(e.key==='ArrowDown'){if(idx===-1)return;spreads[Math.min(idx,spreads.length-1)].scrollIntoView({behavior:'smooth'});}
+  else{let prev=spreads.filter(s=>s.offsetTop<y-10).pop();if(prev)prev.scrollIntoView({behavior:'smooth'});}
+  e.preventDefault();
+});
+</script>
+</body>
+</html>
